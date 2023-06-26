@@ -9,7 +9,7 @@ export default function Home() {
       <div className = "w-[50%]">
         <h1 className = "text-[5vw] font-semibold">Meet Echo</h1>
         <div className = "text-[1.3vw]">
-          <div>You&#39;re next generative AI chat bot.</div>
+          <div>Your next generative AI chat bot.</div>
           <div>Designed to cater the needs of</div>
           <div><span className = "text-[#CD662C] font-semibold">everyone</span> and <span className = "text-[#BE11DA] font-semibold">anyone</span>.</div>
         </div>

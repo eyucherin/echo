@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const UserChat = (props) => {
+const UserChat = (props) => {
   return (
     <div className = "flex flex-row-reverse mr-[2vw] my-[2vh]">
         <div className = "flex">
@@ -17,3 +17,5 @@ export const UserChat = (props) => {
     </div>
   )
 }
+
+export default UserChat

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const EchoChat = (props) => {
+const EchoChat = (props) => {
   return (
     <div className = "flex ml-[2vw] my-[2vh]">
       <div className = "flex">
@@ -17,3 +17,5 @@ export const EchoChat = (props) => {
     </div>
   )
 }
+
+export default EchoChat
