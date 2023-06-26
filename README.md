@@ -1,9 +1,10 @@
+| Landing Page | Chat  |
+| -------- | ------- |
+| <img width="1509" alt="Screenshot 2023-06-25 at 9 41 02 PM" src="https://github.com/eyucherin/echo/assets/66363530/637e180e-ab22-42df-b93f-d969571652c6">  | <img width="1500" alt="Screenshot 2023-06-25 at 9 44 43 PM" src="https://github.com/eyucherin/echo/assets/66363530/efdc5dfc-a4a1-45cc-ba53-7031efffad11">  |
 
-<img width="1509" alt="Screenshot 2023-06-25 at 9 41 02 PM" src="https://github.com/eyucherin/echo/assets/66363530/637e180e-ab22-42df-b93f-d969571652c6">
-
-<p align="center">
+<h1 align="center">
   A AI chatbot app built with Next.js, the Vercel AI SDK, and OpenAI.
-</p>
+</h1>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
