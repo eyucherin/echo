@@ -1,7 +1,7 @@
 'use client'
 import {useChat } from 'ai/react';
-import {EchoChat} from '../components/echoChat.js';
-import {UserChat} from '../components/userChat.js';
+import EchoChat from '../components/echoChat.js';
+import UserChat from '../components/userChat.js';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link'
 
