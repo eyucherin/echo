@@ -2,19 +2,46 @@
 import {useChat } from 'ai/react';
 import EchoChat from '../components/echoChat.js';
 import UserChat from '../components/userChat.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef,useState } from 'react';
 import Link from 'next/link'
 
 export default function Page() {
-    const { messages, input, handleInputChange, handleSubmit } = useChat()
+
+   const getInitialState = () => {
+      const value = "GPT-3.5-Turbo";
+      return value;
+    };
+
+    const initialOption = {
+      api: '/api/chat',
+   };
+
+    const [value, setValue] = useState(getInitialState);
+    const [options, setOptions] = useState(initialOption);
+
+    const { messages, input, handleInputChange, handleSubmit,api } = useChat(options)
     const messageContainerRef = useRef(null);
+
+    const handleChange = (e) => {
+      console.log(e.target.value);
+      if (e.target.value === "GPT-3.5-Turbo") {
+        setOptions({
+          api: '/api/chat',
+        });
+      } else if (e.target.value === "Open Assistant") {
+        setOptions({
+          api: '/api/chat2',
+        });
+      };
+      setValue(e.target.value);
+    };
 
     useEffect(() => {
       scrollMessageContainerToBottom();
     }, [messages]);
 
     const clearMessage = () => {
-      window.location.reload(true); // Navigate to the root URL to reset the chat
+      window.location.reload(true);
     };
 
     const scrollMessageContainerToBottom = () => {
@@ -26,11 +53,22 @@ export default function Page() {
 
     return (
       <div className>
-        <Link href = "/">
-        <img className = " fixed ml-3 mt-3" src = "back-home.svg" width={40} height={15} alt = "people"></img>
-        </Link>
+        <div className = " flex justify-between h-[6vh] px-3  py-[0.5] shadow-md ">
+          <Link href = "/">
+          <img className = "" src = "back-home.svg" width={40} height={15} alt = "people"></img>
+          </Link>
 
-        <div ref={messageContainerRef} className = "h-[92vh] overflow-y-auto">
+          <div className = "h-[100%] flex justify-center items-center">
+            <div className = "mr-2">Model</div>
+            <select value={value} onChange={handleChange} className = "font-semibold bg-[#ECEBEB] rounded-md border border-black">
+              <option value="GPT-3.5-Turbo">GPT-3.5-Turbo</option>
+              <option value="Open Assistant">Open Assistant</option>
+              <option value="Compare">Compare</option>
+            </select>
+          </div>
+        </div>
+
+        <div ref={messageContainerRef} className = "h-[86vh] overflow-y-auto">
         {messages.length > 0
           ? messages.map(m => (
               <div key={m.id} className="whitespace-pre-wrap">
@@ -40,7 +78,7 @@ export default function Page() {
           : null}
         </div>
 
-        <div className = "flex">
+        <div className = "flex h-[6vh] my-2">
           <form onSubmit={handleSubmit} className = "ml-[2vw] mr-[1vw]">
             <input
             className = "w-[85vw] h-[6vh] bg-[#ECEBEB] pl-[2vw] rounded drop-shadow-md relative focus:outline-none"
@@ -49,7 +87,7 @@ export default function Page() {
               placeholder="Say something..."
               onChange={handleInputChange}
             />
-            <button className = "absolute right-[13vw] bottom-[3vh] px-4 py-1 ">
+            <button className = "absolute right-[13vw] bottom-[vh] px-4 py-1 ">
             <img src = "paper-plane-right-bold.png" width={25}/>
             </button>
           </form>
