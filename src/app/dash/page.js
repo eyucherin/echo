@@ -87,7 +87,7 @@ export default function Page() {
               placeholder="Say something..."
               onChange={handleInputChange}
             />
-            <button className = "absolute right-[13vw] bottom-[vh] px-4 py-1 ">
+            <button className = "absolute right-[13vw] bottom-[vh] px-4 py-2 ">
             <img src = "paper-plane-right-bold.png" width={25}/>
             </button>
           </form>
