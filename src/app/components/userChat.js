@@ -11,7 +11,6 @@ const UserChat = (props) => {
             <div className = "w-[7.5vw] flex justify-center align-middle">
               <img className = "" src = "you.png" width={75}/>
             </div>
-            {/* <div className = "absolute top-[5vw] w-[90%] flex justify-center align-middle "> You</div> */}
         </div>
         </div>
     </div>

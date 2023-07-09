@@ -22,7 +22,6 @@ function buildPrompt(
 }
 
 export async function POST(req: Request) {
-  console.log("USING THE OPENASSISTANT MODEL");
   const { messages } = await req.json()
   const response = await Hf.textGenerationStream({
     model: 'OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5',

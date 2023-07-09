@@ -13,7 +13,6 @@ const openai = new OpenAIApi(apiConfig)
 
 export async function POST(req: Request) {
 
-  console.log("USING THE OPENAI MODEL");
   // Extract the `messages` from the body of the request
   const { messages } = await req.json();
 
