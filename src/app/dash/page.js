@@ -9,7 +9,7 @@ export default function Page() {
     const [value, setValue] = useState("GPT-3.5-Turbo");
     const [inputVal, setInputVal] = useState("")
     const [sendVal,setSendVal]  = useState("")
-    const [windowSize, setWindowSize] = useState(window.innerWidth);
+    const [windowSize, setWindowSize] = useState(0);
 
     useEffect(() => {
       const handleResize = () => {
