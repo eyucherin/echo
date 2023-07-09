@@ -1,5 +1,5 @@
 'use client'
-import {useState } from 'react';
+import {useState,useEffect } from 'react';
 import Link from 'next/link'
 import OpenAI from '../components/openAI.js';
 import HuggingFace from '../components/huggingFace.js';
@@ -9,6 +9,26 @@ export default function Page() {
     const [value, setValue] = useState("GPT-3.5-Turbo");
     const [inputVal, setInputVal] = useState("")
     const [sendVal,setSendVal]  = useState("")
+    const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowSize(window.innerWidth);
+      };
+  
+      window.addEventListener('resize', handleResize);
+
+      if(windowSize <= 500 && value === "Compare"){
+        setValue("GPT-3.5-Turbo")
+        setInputVal("")
+          setSendVal("")
+      }
+  
+      // Clean up the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, [windowSize,value]);
 
     const handleChange = (e) => {
       setValue(e.target.value);
@@ -28,7 +48,7 @@ export default function Page() {
       setInputVal("")
     };
     return (
-      <div className>
+      <div className >
         <div className = " flex justify-between h-[6vh] px-3  py-[0.5] shadow-md ">
           <Link href = "/">
           <img className = "" src = "back-home.svg" width={40} height={15} alt = "people"></img>
@@ -39,7 +59,7 @@ export default function Page() {
             <select value={value} onChange={handleChange} className = "font-semibold bg-[#ECEBEB] rounded-md border border-black">
               <option value="GPT-3.5-Turbo">GPT-3.5-Turbo</option>
               <option value="Open Assistant">Open Assistant</option>
-              <option value="Compare">Compare</option>
+              {windowSize > 500 ? <option value="Compare">Compare</option> : null}
             </select>
           </div>
         </div>
@@ -47,7 +67,7 @@ export default function Page() {
           <OpenAI full = {"true"}/> :
           value === "Open Assistant" ?
           <HuggingFace full = {"true"}/> :
-          <div className = "flex">
+          <div className = {`flex ${windowSize > 500 ? "visible": "hidden"}`}>
             <div className = "w-[50%] border border-neutral-300 m-2">
                 <OpenAI full = {"false"} sendVal = {sendVal} inputVal = {inputVal}/>
                 <form onSubmit={handleSubmit} className = {`ml-[2vw] mr-[1vw] my-2`}>

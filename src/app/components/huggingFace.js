@@ -60,20 +60,20 @@ const HuggingFace = (props) => {
           <div className = {` ${props.full === "true" ? 'visible':'hidden'} flex h-[6vh] my-2`}>
               <form onSubmit={handleSubmit} className = "ml-[2vw] mr-[1vw]">
                   <input
-                  className = {`w-[85vw] h-[6vh] bg-[#ECEBEB] pl-[2vw] rounded drop-shadow-md relative focus:outline-none`}
+                  className = {`w-[82vw] md:w-[85vw] h-[6vh] bg-[#ECEBEB] pl-[2vw] rounded drop-shadow-md relative focus:outline-none`}
                   // className="fixed bottom-0 w-full p-2 mb-8 border border-gray-300 rounded shadow-xl"
                   value={input}
                   placeholder="Say something..."
                   onChange={handleInputChange}
                   />
-                  <button className = {`right-[13vw] absolute  bottom-[vh] px-4 py-2`}>
+                <button className = {`${props.full === "true" ? 'right-[15vw] lg:right-[13vw]':'left-[42vw]' } absolute  bottom-[vh] px-4 py-2`}>
                   <img src = "paper-plane-right-bold.png" width={25}/>
-                  </button>
+                </button>
               </form>
 
-              <button className = {`visible border w-[10vw] bg-[#ECEBEB] font-bold rounded hover:bg-[#D9D9D9] h-[6vh]`} onClick={clearMessage}>
+            <button className = {`border w-[13vw] lg:w-[10vw] bg-[#ECEBEB] font-semibold rounded hover:bg-[#D9D9D9] h-[6vh]  text-sm md:text-base`} onClick={clearMessage}>
               + New Chat
-              </button>
+            </button>
           </div>
       </div>
     )
