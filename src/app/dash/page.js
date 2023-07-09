@@ -59,7 +59,7 @@ export default function Page() {
             <select value={value} onChange={handleChange} className = "font-semibold bg-[#ECEBEB] rounded-md border border-black">
               <option value="GPT-3.5-Turbo">GPT-3.5-Turbo</option>
               <option value="Open Assistant">Open Assistant</option>
-              {windowSize > 500 ? <option value="Compare">Compare</option> : null}
+              {windowSize.width > 500 ? <option value="Compare">Compare</option> : null}
             </select>
           </div>
         </div>
