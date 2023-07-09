@@ -55,10 +55,12 @@ export default function Page() {
     };
     return (
       <div className >
-        <div className = " flex justify-between h-[6vh] px-3  py-[0.5] shadow-md ">
-          <Link href = "/">
-          <img className = "" src = "back-home.svg" width={40} height={15} alt = "people"></img>
-          </Link>
+        <div className = " flex justify-between  h-[6vh] px-3  py-[0.5] shadow-md ">
+          <div className = "flex justify-center items-center">
+            <Link href = "/">
+            <img className = "" src = "back-home.svg" width={40} height={15} alt = "people"></img>
+            </Link>
+          </div>
 
           <div className = "h-[100%] flex justify-center items-center">
             <div className = "mr-2">Model</div>
