@@ -15,18 +15,24 @@ export default function Page() {
       const handleResize = () => {
         setWindowSize(window.innerWidth);
       };
+
+      if (typeof window !== 'undefined') {
+        setWindowSize(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+      }
   
-      window.addEventListener('resize', handleResize);
 
       if(windowSize <= 500 && value === "Compare"){
         setValue("GPT-3.5-Turbo")
-        setInputVal("")
+          setInputVal("")
           setSendVal("")
       }
   
       // Clean up the event listener on component unmount
       return () => {
-        window.removeEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('resize', handleResize);
+        }
       };
     }, [windowSize,value]);
 
@@ -59,7 +65,7 @@ export default function Page() {
             <select value={value} onChange={handleChange} className = "font-semibold bg-[#ECEBEB] rounded-md border border-black">
               <option value="GPT-3.5-Turbo">GPT-3.5-Turbo</option>
               <option value="Open Assistant">Open Assistant</option>
-              {windowSize.width > 500 ? <option value="Compare">Compare</option> : null}
+              {windowSize > 500 ? <option value="Compare">Compare</option> : null}
             </select>
           </div>
         </div>
