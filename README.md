@@ -25,6 +25,6 @@ This template ships with OpenAI `gpt-3.5-turbo` as the default. However, thanks 
 
 ## Running locally
 
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot
+You will need need your own personal tokens to use the environment variables and run the Next.js AI Chatbot
 
 
